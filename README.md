@@ -4,7 +4,7 @@
 
 ## 遊ぶ
 
-https://koron950705.github.io/tower-defense-game/
+https://koron950705.github.io/Tower-Defense-Game/
 
 ## 内容
 
