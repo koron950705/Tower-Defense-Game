@@ -1,0 +1,183 @@
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: #1b1f16;
+  color: #e8e6d9;
+  font-family: "Segoe UI", "Meiryo", sans-serif;
+}
+
+body {
+  padding-inline: 16px;
+  padding-block: 16px;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* ---------- HUD ---------- */
+#hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  background: #2b2f24;
+  border: 2px solid #4a4f3c;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.hudItem { white-space: nowrap; }
+.hudSpacer { flex: 1; }
+#waveStatus { color: #ffd27a; font-weight: bold; }
+.iconBtn {
+  background: #3d4232;
+  color: #e8e6d9;
+  border: 1px solid #5c624a;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.iconBtn:hover { background: #4c5240; }
+
+/* ---------- Game area ---------- */
+#gameArea {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 520;
+  border: 3px solid #4a4f3c;
+  border-radius: 4px;
+  background: #33422b;
+}
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+#towerInfoPanel {
+  position: absolute;
+  background: rgba(20, 22, 15, 0.95);
+  border: 2px solid #8a9a5a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  min-width: 170px;
+  z-index: 5;
+}
+#towerInfoPanel h3 { margin: 0 0 6px 0; font-size: 14px; color: #ffd27a; }
+#towerInfoPanel p { margin: 3px 0; }
+#towerInfoPanel button {
+  margin-top: 6px;
+  margin-right: 6px;
+  padding: 5px 8px;
+  border: 1px solid #5c624a;
+  background: #3d4232;
+  color: #e8e6d9;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+#towerInfoPanel button:hover { background: #4c5240; }
+#towerInfoPanel button:disabled { opacity: 0.4; cursor: not-allowed; }
+.hidden { display: none !important; }
+
+/* ---------- Build panel ---------- */
+#buildPanel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+  background: #2b2f24;
+  border: 2px solid #4a4f3c;
+  border-radius: 6px;
+  padding: 10px;
+}
+.towerBtn {
+  flex: 1 1 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #3d4232;
+  border: 2px solid #5c624a;
+  border-radius: 6px;
+  padding: 8px;
+  color: #e8e6d9;
+  cursor: pointer;
+  font-size: 13px;
+}
+.towerBtn:hover { background: #4c5240; }
+.towerBtn.selected { border-color: #ffd27a; background: #5a5a3a; }
+.towerBtn canvas { image-rendering: pixelated; }
+.towerBtn .cost { color: #ffd27a; font-weight: bold; }
+.towerBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ---------- Overlays ---------- */
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 12, 8, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+}
+.overlay h1 { margin: 0; font-size: clamp(22px, 7vw, 32px); color: #ffd27a; }
+.overlay h2 { margin: 0; font-size: clamp(20px, 6vw, 26px); color: #ffd27a; }
+.overlay .subtitle { margin: 0; color: #b9c19e; }
+
+.bigBtn {
+  background: #6a8a3a;
+  color: #10130c;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.bigBtn:hover { background: #7fa348; }
+
+.smallBtn {
+  background: transparent;
+  color: #b9c19e;
+  border: 1px solid #5c624a;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.smallBtn:hover { background: #3d4232; }
+
+#stageList {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  width: 700px;
+}
+.stageCard {
+  flex: 1 1 150px;
+  max-width: 220px;
+  background: #2b2f24;
+  border: 2px solid #5c624a;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+}
+.stageCard:hover { border-color: #ffd27a; }
+.stageCard h3 { margin: 0 0 8px 0; font-size: 15px; color: #ffd27a; }
+.stageCard p { margin: 2px 0; font-size: 12px; color: #b9c19e; }

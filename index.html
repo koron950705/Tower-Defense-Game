@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タワーディフェンス: 前線防衛</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <div id="hud">
+    <div class="hudItem">💰 <span id="goldValue">0</span></div>
+    <div class="hudItem">❤ <span id="livesValue">0</span></div>
+    <div class="hudItem">🌊 <span id="waveValue">0/0</span></div>
+    <div id="waveStatus" class="hudItem"></div>
+    <div class="hudSpacer"></div>
+    <button id="muteBtn" class="iconBtn" title="ミュート">🔊</button>
+    <button id="speedBtn" class="iconBtn" title="倍速">x1</button>
+    <button id="pauseBtn" class="iconBtn" title="一時停止">⏸</button>
+  </div>
+
+  <div id="gameArea">
+    <canvas id="gameCanvas" width="800" height="520"></canvas>
+    <div id="towerInfoPanel" class="panel hidden"></div>
+  </div>
+
+  <div id="buildPanel"></div>
+
+  <!-- Title screen -->
+  <div id="titleScreen" class="overlay">
+    <h1>前線防衛タワーディフェンス</h1>
+    <p class="subtitle">近代戦をテーマにした固定ルート型タワーディフェンス</p>
+    <button class="bigBtn" id="titleStartBtn">はじめる</button>
+  </div>
+
+  <!-- Stage select screen -->
+  <div id="stageSelectScreen" class="overlay hidden">
+    <h2>ステージ選択</h2>
+    <div id="stageList"></div>
+    <button class="smallBtn" id="stageSelectBackBtn">タイトルへ戻る</button>
+  </div>
+
+  <!-- Pause screen -->
+  <div id="pauseScreen" class="overlay hidden">
+    <h2>一時停止中</h2>
+    <button class="bigBtn" id="resumeBtn">再開する</button>
+    <button class="smallBtn" id="pauseToStageSelectBtn">ステージ選択へ</button>
+  </div>
+
+  <!-- Game over screen -->
+  <div id="gameOverScreen" class="overlay hidden">
+    <h2>基地陥落…</h2>
+    <p id="gameOverStats"></p>
+    <button class="bigBtn" id="retryBtn">リトライ</button>
+    <button class="smallBtn" id="gameOverToStageSelectBtn">ステージ選択へ</button>
+  </div>
+
+  <!-- Stage clear screen -->
+  <div id="stageClearScreen" class="overlay hidden">
+    <h2>ステージクリア!</h2>
+    <p id="stageClearStats"></p>
+    <button class="bigBtn" id="nextStageBtn">次のステージへ</button>
+    <button class="smallBtn" id="stageClearToStageSelectBtn">ステージ選択へ</button>
+  </div>
+
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
